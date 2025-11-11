@@ -5,7 +5,7 @@ import { useFocusEffect } from 'expo-router';
 import axios from 'axios';
 
 // ⚠️ ATENÇÃO: Troque pela URL da sua API na Vercel!
-const API_URL = "https://SEU-PROJETO-API.vercel.app/api/pessoa/1";
+const API_URL = "https://curriculo-app-nine.vercel.app/api/pessoa/1";
 
 export default function AcademicaScreen() {
   const [formacoes, setFormacoes] = useState([]);

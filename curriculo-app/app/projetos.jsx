@@ -3,18 +3,19 @@ import { Text, View, StyleSheet, ScrollView, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // ⚠️ ATENÇÃO: Troque pelos links dos seus repositórios!
+// ⚠️ ATENÇÃO FINAL - TROCAR ANTES DE ENTREGAR! ⚠️
 const meusProjetos = [
   {
     id: 1,
     titulo: 'Projeto da API de Currículo (Tarefa 1)',
     descricao: 'API RESTful feita com Node.js, Express e Supabase (PostgreSQL) para gerenciar currículos, incluindo dados pessoais, experiências e formações com relacionamentos.',
-    link: 'https://github.com/SEU_USUARIO/SEU_REPO_API'
+    link: 'https://github.com/SEU_USUARIO_GITHUB/NOME_DO_REPO_DA_API'
   },
   {
     id: 2,
     titulo: 'Este App de Portfólio (Tarefa 2)',
     descricao: 'Aplicativo React Native + Expo com Expo Router que consome a API de currículo para exibir dados de forma dinâmica.',
-    link: 'https://github.com/SEU_USUARIO/SEU_REPO_APP'
+    link: 'https://github.com/SEU_USUARIO_GITHUB/NOME_DO_REPO_DO_APP'
   },
 ];
 

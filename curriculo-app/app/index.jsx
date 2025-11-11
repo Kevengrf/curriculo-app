@@ -4,8 +4,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from 'expo-router';
 import axios from 'axios';
 
-// ⚠️ ATENÇÃO: Troque pela URL da sua API na Vercel!
-const API_URL = "https://SEU-PROJETO-API.vercel.app/api/pessoa/1"; 
+// ⚠️ ATENÇÃO FINAL - TROCAR ANTES DE ENTREGAR! ⚠️
+// 1. Para testar no celular: Use o IP da sua máquina (ex: "http://192.168.1.5:3000/api/pessoa/1").
+// 2. Para entregar: Use a URL da sua API na Vercel (ex: "https://meu-curriculo-api.vercel.app/api/pessoa/1").
+// O ID da pessoa (o número 1 no final) deve existir no seu banco de dados.
+const API_URL = "https://curriculo-app-nine.vercel.app/api/pessoa/1"; 
 
 export default function HomeScreen() {
   const [pessoa, setPessoa] = useState(null);
@@ -61,6 +64,32 @@ export default function HomeScreen() {
               <Text style={styles.cardTitle}>Resumo Profissional</Text>
               <Text style={styles.cardContent}>{pessoa.resumo_perfil || "Nenhum resumo cadastrado."}</Text>
             </View>
+
+            {pessoa.experiencias && pessoa.experiencias.length > 0 && (
+              <View style={styles.card}>
+                <Text style={styles.cardTitle}>Experiência Profissional</Text>
+                {pessoa.experiencias.map((exp) => (
+                  <View key={exp.id} style={styles.listItem}>
+                    <Text style={styles.itemTitle}>{exp.cargo} - {exp.empresa}</Text>
+                    <Text style={styles.itemDate}>{new Date(exp.data_inicio).getFullYear()} - {exp.data_fim ? new Date(exp.data_fim).getFullYear() : 'Atual'}</Text>
+                    <Text style={styles.itemDescription}>{exp.descricao}</Text>
+                  </View>
+                ))}
+              </View>
+            )}
+
+            {pessoa.formacoes && pessoa.formacoes.length > 0 && (
+              <View style={styles.card}>
+                <Text style={styles.cardTitle}>Formação Acadêmica</Text>
+                {pessoa.formacoes.map((form) => (
+                  <View key={form.id} style={styles.listItem}>
+                    <Text style={styles.itemTitle}>{form.curso}</Text>
+                    <Text style={styles.itemSubtitle}>{form.instituicao}</Text>
+                    <Text style={styles.itemDate}>{new Date(form.data_inicio).getFullYear()} - {form.data_fim ? new Date(form.data_fim).getFullYear() : 'Cursando'}</Text>
+                  </View>
+                ))}
+              </View>
+            )}
           </>
         )}
       </ScrollView>
@@ -78,6 +107,11 @@ const styles = StyleSheet.create({
   card: { backgroundColor: '#1C1C1E', borderRadius: 15, padding: 20, marginBottom: 20 },
   cardTitle: { fontSize: 20, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 10 },
   cardContent: { fontSize: 16, color: '#DDDDDD', lineHeight: 24 },
+  listItem: { marginBottom: 15, borderBottomColor: '#333', borderBottomWidth: 1, paddingBottom: 15 },
+  itemTitle: { fontSize: 18, fontWeight: 'bold', color: '#FFFFFF' },
+  itemSubtitle: { fontSize: 16, color: '#AAAAAA' },
+  itemDate: { fontSize: 14, color: '#888888', fontStyle: 'italic', marginTop: 5 },
+  itemDescription: { fontSize: 15, color: '#DDDDDD', marginTop: 5 },
   errorText: { fontSize: 18, color: '#FF6B6B', textAlign: 'center', fontWeight: 'bold' },
   errorSubText: { fontSize: 14, color: '#AAAAAA', textAlign: 'center', marginTop: 10 },
 });
