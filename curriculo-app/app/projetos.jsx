@@ -9,13 +9,13 @@ const meusProjetos = [
     id: 1,
     titulo: 'Projeto da API de Currículo (Tarefa 1)',
     descricao: 'API RESTful feita com Node.js, Express e Supabase (PostgreSQL) para gerenciar currículos, incluindo dados pessoais, experiências e formações com relacionamentos.',
-    link: 'https://github.com/SEU_USUARIO_GITHUB/NOME_DO_REPO_DA_API'
+    link: 'https://github.com/KevenWilliam/curriculo-api' // Exemplo, troque se for diferente
   },
   {
     id: 2,
     titulo: 'Este App de Portfólio (Tarefa 2)',
     descricao: 'Aplicativo React Native + Expo com Expo Router que consome a API de currículo para exibir dados de forma dinâmica.',
-    link: 'https://github.com/SEU_USUARIO_GITHUB/NOME_DO_REPO_DO_APP'
+    link: 'https://github.com/KevenWilliam/curriculo-app' // Exemplo, troque se for diferente
   },
 ];
 
